@@ -1,8 +1,12 @@
 import os
 import openai
+
+import GPTcontroller
 import api_key_manager
+from GPTcontroller import create_new_conversation
+
 if __name__ == '__main__':
-    api_key_manager.set_api_key("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", "user1")
+    api_key_manager.set_api_key("API_KEY", "user1")
     # 显示所有标识供用户选择
     api_key_manager.display_identifiers()
     print("[A]dd API key | [Q]uit")
@@ -19,6 +23,7 @@ if __name__ == '__main__':
             print(f"Using API key for {user_choice}")
             if api_key_manager.test_api_key(selected_api_key):
                 print("Successfully logged in...")
+                GPTcontroller.create_new_conversation(selected_api_key)
             else:
                 print("API key test failed. Please check the key or network.")
         else:

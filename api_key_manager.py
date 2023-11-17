@@ -1,5 +1,6 @@
 import openai
 from openai import OpenAI
+from GPTcontroller import create_new_conversation
 
 api_key_dict = {}  # 用来存储API密钥和对应标识的字典
 
@@ -47,7 +48,7 @@ def test_api_key(selected_api_key):
                     "content": "Say this is a test",
                 }
             ],
-            model="gpt-3.5-turbo",
+            model="gpt-3.5-turbo-1106",
         )
         # 如果请求成功，说明 API 密钥有效
         return True
