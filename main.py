@@ -2,7 +2,7 @@ import os
 import openai
 import api_key_manager
 if __name__ == '__main__':
-    api_key_manager.set_api_key("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", "user1")
+    api_key_manager.set_api_key("API_KEY", "user1")
     # 显示所有标识供用户选择
     api_key_manager.display_identifiers()
     print("[A]dd API key | [Q]uit")
