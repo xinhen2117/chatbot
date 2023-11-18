@@ -6,7 +6,7 @@ import api_key_manager
 from GPTcontroller import create_new_conversation
 
 if __name__ == '__main__':
-    api_key_manager.set_api_key("API_KEY", "user1")
+    api_key_manager.set_api_key("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", "user1")
     # 显示所有标识供用户选择
     api_key_manager.display_identifiers()
     print("[A]dd API key | [Q]uit")
@@ -23,7 +23,13 @@ if __name__ == '__main__':
             print(f"Using API key for {user_choice}")
             if api_key_manager.test_api_key(selected_api_key):
                 print("Successfully logged in...")
-                GPTcontroller.create_new_conversation(selected_api_key)
+                choose = input("enter !new to create new conversation or !load to load existing conversation: ")
+                if choose == '!new':
+                    GPTcontroller.create_new_conversation(selected_api_key)
+                elif choose == '!load':
+                    GPTcontroller.display_all_markers()
+                    marker = input("Please enter marker: ")
+                    GPTcontroller.load_conversation_by_marker(selected_api_key, marker)
             else:
                 print("API key test failed. Please check the key or network.")
         else:
