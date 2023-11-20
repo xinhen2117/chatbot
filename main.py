@@ -6,7 +6,7 @@ import api_key_manager
 from GPTcontroller import create_new_conversation
 
 if __name__ == '__main__':
-    api_key_manager.set_api_key("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", "user1")
+    api_key_manager.set_api_key("API_KEY", "user1")
     # 显示所有标识供用户选择
     api_key_manager.display_identifiers()
     print("[A]dd API key | [Q]uit")

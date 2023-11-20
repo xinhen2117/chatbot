@@ -7,12 +7,12 @@ import json
 def create_new_conversation(selected_api_key):
     openai.api_key = selected_api_key
     messages = []
-    marker = input("What type of chatbot you want me to be?")
+    marker = input("What will we talk about?:")
     messages.append({"role": "system", "content": marker})
-    print("Alright!Our conversion will about {marker}" + "\n" + "You can now type your messages."
-                                                                "Enter '!quit' to stop.")
+    print("Alright!Our conversion will about " + marker + "\n" + "You can now type your messages."
+                                                                 "Enter '!quit' to stop.")
     while True:
-        message = input("")
+        message = input(":")
         if message.lower() == '!quit':
             break
         messages.append({"role": "user", "content": message})
@@ -37,9 +37,9 @@ def load_conversation_by_marker(selected_api_key, marker, conversation_directory
     if os.path.exists(full_file_path):
         with open(full_file_path, 'r') as file:
             messages = json.load(file)
-            print("Let's continue the conversation!What's your problem now?"+"\n"+":")
+            print("Let's continue the conversation!What's your problem now?")
             while True:
-                message = input("")
+                message = input(":")
                 if message.lower() == '!quit':
                     break
                 messages.append({"role": "user", "content": message})
